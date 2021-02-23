@@ -1,5 +1,8 @@
+//Styles
+import styles from "../styles/pages/Profile.module.css";
+
 const Profile = () => (
-  <div>
+  <div className={styles.profileContainer}>
     <img src="https://github.com/RpThiagoluiz.png" alt="Thiago Luiz" />
     <div>
       <strong>Thiago Luiz</strong>
