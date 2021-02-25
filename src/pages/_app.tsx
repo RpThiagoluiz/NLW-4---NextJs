@@ -1,4 +1,5 @@
 import { ChallengesProvider } from "../contexts/ChallengesContext";
+
 //Styles
 import "../styles/global.css";
 

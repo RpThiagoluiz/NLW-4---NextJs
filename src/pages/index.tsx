@@ -1,3 +1,4 @@
+import { CountdownProvider } from "../contexts/CountdownContext";
 import CompletedChallenges from "../components/CompletedChallenges";
 import Head from "next/head";
 
@@ -15,16 +16,18 @@ const Home = () => (
       <title> Inicio | MoveIt - Next JS</title>
     </Head>
     <ExperienceBar />
-    <section>
-      <div>
-        <Profile />
-        <CompletedChallenges />
-        <Countdown />
-      </div>
-      <div>
-        <ChallengeBox />
-      </div>
-    </section>
+    <CountdownProvider>
+      <section>
+        <div>
+          <Profile />
+          <CompletedChallenges />
+          <Countdown />
+        </div>
+        <div>
+          <ChallengeBox />
+        </div>
+      </section>
+    </CountdownProvider>
   </div>
 );
 
