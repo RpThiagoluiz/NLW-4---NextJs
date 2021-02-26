@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ChallengesContext } from "../contexts/ChallengesContext";
+import { CountdownContext } from "../contexts/CountdownContext";
 
 //Styles
 import styles from "../styles/components/ChallengeBox.module.css";
@@ -8,7 +9,18 @@ const ChallengeBox = () => {
   const { activeChallenge, resetChallenge, completeChallenge } = useContext(
     ChallengesContext
   );
-  //Quando n'ao tem ele retorna null e ja cai no caso n'ao ativo.
+
+  const { resetCountdown } = useContext(CountdownContext);
+
+  const handleChallengeSucceeded = () => {
+    completeChallenge();
+    resetCountdown();
+  };
+
+  const handleChallengeFailed = () => {
+    resetChallenge();
+    resetCountdown();
+  };
 
   return (
     <div className={styles.challengeBoxContainer}>
@@ -24,14 +36,14 @@ const ChallengeBox = () => {
             <button
               type="button"
               className={styles.challengeFailedButton}
-              onClick={resetChallenge}
+              onClick={handleChallengeFailed}
             >
               Falhei
             </button>
             <button
               type="button"
               className={styles.challengeSucceededButton}
-              onClick={completeChallenge}
+              onClick={handleChallengeSucceeded}
             >
               Completei
             </button>

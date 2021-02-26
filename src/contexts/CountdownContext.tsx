@@ -42,7 +42,8 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
   const resetCountdown = () => {
     clearTimeout(coundownTimeout);
     setIsActive(false);
-    setTime(25 * 60);
+    setHasFinished(false);
+    setTime(0.05 * 60);
   };
 
   useEffect(() => {
